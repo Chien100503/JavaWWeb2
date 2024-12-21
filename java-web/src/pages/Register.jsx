@@ -44,6 +44,12 @@ function Register() {
         <h2 style={styles.heading}>Register</h2>
         {errorMessage && <p style={styles.error}>{errorMessage}</p>}
         <div style={styles.inputContainer}>
+          <label htmlFor="fullname" style={styles.label}>
+            Full Name
+          </label>
+          <input id="fullname" type="text" placeholder="Enter your full name" value={fullname} onChange={(e) => setFullname(e.target.value)} required style={styles.input} />
+        </div>
+        <div style={styles.inputContainer}>
           <label htmlFor="username" style={styles.label}>
             Username
           </label>
@@ -55,12 +61,7 @@ function Register() {
           </label>
           <input id="password" type="password" placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)} required style={styles.input} />
         </div>
-        <div style={styles.inputContainer}>
-          <label htmlFor="fullname" style={styles.label}>
-            Full Name
-          </label>
-          <input id="fullname" type="text" placeholder="Enter your full name" value={fullname} onChange={(e) => setFullname(e.target.value)} required style={styles.input} />
-        </div>
+
         <button type="submit" style={styles.button} disabled={loading}>
           {loading ? "Đang đăng ký..." : "Register"}
         </button>
@@ -76,60 +77,66 @@ const styles = {
     alignItems: "center",
     height: "100vh",
     backgroundColor: "#f4f6f9",
+    flexDirection: "column",
   },
+
+  heading: {
+    fontSize: "24px",
+    fontWeight: "600",
+    marginBottom: "20px",
+    color: "#2E5077", // Dark blue color for heading
+  },
+
   form: {
-    backgroundColor: "#ffffff",
-    padding: "40px 30px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    backgroundColor: "#fff",
+    padding: "40px",
     borderRadius: "8px",
     boxShadow: "0 10px 20px rgba(0, 0, 0, 0.1)",
     width: "100%",
-    maxWidth: "450px",
-    transition: "all 0.3s ease",
+    maxWidth: "400px",
   },
-  heading: {
-    textAlign: "center",
-    color: "#333",
-    marginBottom: "20px",
-    fontSize: "24px",
-    fontWeight: "500",
-  },
-  inputContainer: {
-    marginBottom: "15px",
-  },
-  label: {
-    display: "block",
-    marginBottom: "8px",
-    fontSize: "14px",
-    color: "#555",
-    fontWeight: "600",
-  },
+
   input: {
     width: "100%",
     padding: "12px",
-    border: "1px solid #ddd",
+    marginBottom: "10px",
     borderRadius: "4px",
+    border: "1px solid #ddd",
     fontSize: "16px",
     color: "#333",
-    backgroundColor: "#f9f9f9",
-    boxSizing: "border-box",
-    transition: "border-color 0.3s ease, background-color 0.3s ease",
   },
+
   button: {
     width: "100%",
     padding: "14px",
-    backgroundColor: "#28a745",
+    backgroundColor: "#2E5077", // Dark blue button color
     color: "#fff",
     border: "none",
     borderRadius: "4px",
     fontSize: "16px",
     cursor: "pointer",
-    transition: "background-color 0.3s",
+    transition: "background-color 0.3s ease",
   },
-  error: {
+
+  message: {
     color: "#e74c3c",
     fontSize: "14px",
-    textAlign: "center",
-    marginBottom: "20px",
+    marginTop: "20px",
+  },
+
+  registerButton: {
+    marginTop: "15px",
+    padding: "10px 20px",
+    backgroundColor: "#4DA1A9", // Light blue for register button
+    color: "#fff",
+    border: "none",
+    borderRadius: "4px",
+    fontSize: "16px",
+    cursor: "pointer",
+    transition: "background-color 0.3s ease",
   },
 };
 

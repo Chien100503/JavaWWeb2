@@ -1,0 +1,73 @@
+const styles = {
+    container: {
+      padding: "20px",
+      fontFamily: "Arial, sans-serif",
+      backgroundColor: "#f4f7f6", // Light background color for the main container
+    },
+    heading: {
+      fontSize: "26px",
+      fontWeight: "600",
+      marginBottom: "20px",
+      color: "#2E5077", // Dark blue for heading
+    },
+    table: {
+      width: "100%",
+      borderCollapse: "collapse",
+    },
+    tableHeader: {
+      backgroundColor: "#2E5077", // Dark blue background for header
+      color: "#ffffff", // White text for better contrast
+      padding: "12px",
+      textAlign: "left",
+      fontWeight: "600",
+    },
+    tableData: {
+      padding: "12px",
+      borderBottom: "1px solid #ddd",
+      cursor: "pointer",
+      color: "#333", // Dark gray text for table data
+      transition: "background-color 0.3s",
+    },
+    row: {
+      transition: "background-color 0.3s",
+    },
+    rowHover: {
+      backgroundColor: "#e0f2f1", // Light teal hover effect on rows
+    },
+    modalBackdrop: {
+      position: "fixed",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent dark backdrop
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      zIndex: 1000,
+    },
+    modal: {
+      backgroundColor: "#ffffff",
+      padding: "20px",
+      borderRadius: "8px",
+      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+      width: "450px",
+      maxWidth: "90%", // Ensure modal doesn't exceed screen width
+    },
+    closeButton: {
+      marginTop: "10px",
+      backgroundColor: "#4DA1A9", // Teal color for the close button
+      color: "#fff",
+      padding: "12px 20px",
+      border: "none",
+      borderRadius: "4px",
+      cursor: "pointer",
+      fontSize: "16px",
+      transition: "background-color 0.3s",
+    },
+    closeButtonHover: {
+      backgroundColor: "#3d8c86", // Slightly darker teal on hover
+    },
+  };
+  
+  export default styles;

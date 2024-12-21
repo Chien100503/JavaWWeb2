@@ -51,7 +51,13 @@ const UsersList = () => {
         </thead>
         <tbody>
           {users.map((user, index) => (
-            <tr key={user.id} onClick={() => handleUserClick(user)} style={styles.row}>
+            <tr
+              key={user.id}
+              onClick={() => handleUserClick(user)}
+              style={styles.row}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#e0f2f1")}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "")}
+            >
               <td style={styles.tableData}>{index + 1}</td>
               <td style={styles.tableData}>{user.username}</td>
               <td style={styles.tableData}>{user.fullname}</td>
@@ -70,13 +76,12 @@ const UsersList = () => {
             <p>
               <strong>Full Name:</strong> {selectedUser.fullname}
             </p>
-            <p>
-              <strong>Email:</strong> {selectedUser.email}
-            </p>
-            <p>
-              <strong>Phone:</strong> {selectedUser.phone}
-            </p>
-            <button onClick={closeModal} style={styles.closeButton}>
+            <button
+              onClick={closeModal}
+              style={{ ...styles.closeButton, ...styles.closeButtonHover }}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#3d8c86")}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#4DA1A9")}
+            >
               Close
             </button>
           </div>
@@ -91,31 +96,37 @@ const styles = {
   container: {
     padding: "20px",
     fontFamily: "Arial, sans-serif",
+    backgroundColor: "#f4f7f6", // Light background color for the main container
   },
   heading: {
-    fontSize: "24px",
+    fontSize: "26px",
     fontWeight: "600",
     marginBottom: "20px",
-    color: "#333",
+    color: "#2E5077", // Dark blue for heading
   },
   table: {
     width: "100%",
     borderCollapse: "collapse",
   },
   tableHeader: {
-    borderBottom: "2px solid #ddd",
+    backgroundColor: "#2E5077", // Dark blue background for header
+    color: "#ffffff", // White text for better contrast
     padding: "12px",
     textAlign: "left",
     fontWeight: "600",
-    backgroundColor: "#f8f8f8",
   },
   tableData: {
     padding: "12px",
     borderBottom: "1px solid #ddd",
     cursor: "pointer",
+    color: "#333", // Dark gray text for table data
+    transition: "background-color 0.3s",
   },
   row: {
     transition: "background-color 0.3s",
+  },
+  rowHover: {
+    backgroundColor: "#e0f2f1", // Light teal hover effect on rows
   },
   modalBackdrop: {
     position: "fixed",
@@ -123,27 +134,33 @@ const styles = {
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent dark backdrop
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     zIndex: 1000,
   },
   modal: {
-    backgroundColor: "#fff",
+    backgroundColor: "#ffffff",
     padding: "20px",
     borderRadius: "8px",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-    width: "400px",
+    width: "450px",
+    maxWidth: "90%", // Ensure modal doesn't exceed screen width
   },
   closeButton: {
     marginTop: "10px",
-    backgroundColor: "#28a745",
+    backgroundColor: "#4DA1A9", // Teal color for the close button
     color: "#fff",
-    padding: "10px 15px",
+    padding: "12px 20px",
     border: "none",
     borderRadius: "4px",
     cursor: "pointer",
+    fontSize: "16px",
+    transition: "background-color 0.3s",
+  },
+  closeButtonHover: {
+    backgroundColor: "#3d8c86", // Slightly darker teal on hover
   },
 };
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate for redirection
 import { loginUser } from "../services/app.js";
+import { FaSignInAlt } from "react-icons/fa"; // Import login icon
 
 const Login = () => {
   const [credentials, setCredentials] = useState({ username: "", password: "" });
@@ -37,7 +38,7 @@ const Login = () => {
         <input type="text" name="username" placeholder="Tên đăng nhập" value={credentials.username} onChange={handleInputChange} style={styles.input} />
         <input type="password" name="password" placeholder="Mật khẩu" value={credentials.password} onChange={handleInputChange} style={styles.input} />
         <button type="submit" style={styles.button}>
-          Đăng nhập
+          <FaSignInAlt style={{ marginRight: "8px" }} /> Đăng nhập
         </button>
       </form>
       {message && <p style={styles.message}>{message}</p>}
@@ -48,7 +49,6 @@ const Login = () => {
   );
 };
 
-// CSS Styles
 const styles = {
   container: {
     display: "flex",
@@ -62,7 +62,7 @@ const styles = {
     fontSize: "24px",
     fontWeight: "600",
     marginBottom: "20px",
-    color: "#333",
+    color: "#2E5077", // Dark blue color for heading
   },
   form: {
     display: "flex",
@@ -87,7 +87,7 @@ const styles = {
   button: {
     width: "100%",
     padding: "14px",
-    backgroundColor: "#28a745",
+    backgroundColor: "#2E5077", // Dark blue button color
     color: "#fff",
     border: "none",
     borderRadius: "4px",
@@ -103,7 +103,7 @@ const styles = {
   registerButton: {
     marginTop: "15px",
     padding: "10px 20px",
-    backgroundColor: "#007bff",
+    backgroundColor: "#4DA1A9", // Light blue for register button
     color: "#fff",
     border: "none",
     borderRadius: "4px",

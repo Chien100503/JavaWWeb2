@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"  # Map cổng từ ứng dụng Spring Boot
+    environment:
+      SPRING_APPLICATION_NAME: backend
+      SPRING_DATASOURCE_URL: jdbc:h2:file:./database/chienhx
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.h2.Driver
+      SPRING_DATASOURCE_USERNAME: chienhx
+      SPRING_DATASOURCE_PASSWORD: 123
+      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.H2Dialect
+      SPRING_H2_CONSOLE_ENABLED: true
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_DEFER_DATASOURCE_INITIALIZATION: true
+      SERVER_PORT: 8080
